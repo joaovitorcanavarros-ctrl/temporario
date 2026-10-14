@@ -1,0 +1,297 @@
+{
+  "theme": {
+    "mode": "dark_primary",
+    "description": "Professional Dark Mode for Military Firefighter Command (CBMMT - Corpo de Bombeiros Militar de Mato Grosso). Deep graphite/slate navy canvas (#0B111A) with layered elevated slate panels (#121B28, #182335), high-contrast tactical typography, electric azure blue accents for metrics/navigation, emerald green for active personnel, amber for alert expirations, and signal crimson for terminations/critical status. Brazilian locale conventions: pt-BR dates (DD/MM/AAAA), CPF formatting, Brazilian currency/formatting standards."
+  },
+  "locale": {
+    "language": "pt-BR",
+    "date_format": "DD/MM/YYYY",
+    "time_format": "HH:mm",
+    "number_format": "pt-BR"
+  },
+  "typography": {
+    "font_family_heading": "Manrope, sans-serif",
+    "font_family_sans": "Plus Jakarta Sans, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "css_import": "@import \"@fontsource-variable/plus-jakarta-sans\";\n@import \"@fontsource-variable/manrope\";\n@import \"@fontsource-variable/jetbrains-mono\";",
+    "scale_px": {
+      "display": 48,
+      "h1": 36,
+      "h2": 28,
+      "h3": 22,
+      "h4": 18,
+      "body": 16,
+      "caption": 14,
+      "tiny": 12
+    },
+    "rules": {
+      "headings": "font-heading font-bold tracking-tight text-slate-100",
+      "body": "font-sans font-normal leading-relaxed text-slate-300",
+      "numbers_and_codes": "font-mono font-semibold tracking-tight",
+      "labels_overlines": "text-xs uppercase font-semibold tracking-wider text-slate-400"
+    }
+  },
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#0B111A",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "sidebar",
+        "kind": "solid",
+        "bg": "#0D1522",
+        "on_bg": "#F8FAFC",
+        "on_bg_muted": "#8292A8"
+      },
+      {
+        "name": "header",
+        "kind": "solid",
+        "bg": "#101928",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#121B28",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "card_elevated",
+        "kind": "solid",
+        "bg": "#182335",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#A2B4CA"
+      },
+      {
+        "name": "table_row_alt",
+        "kind": "solid",
+        "bg": "#141F30",
+        "on_bg": "#F1F5F9",
+        "on_bg_muted": "#94A3B8"
+      },
+      {
+        "name": "badge_active",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#A7F3D0",
+        "on_bg_muted": "#6EE7B7"
+      },
+      {
+        "name": "badge_warning",
+        "kind": "solid",
+        "bg": "#78350F",
+        "on_bg": "#FDE68A",
+        "on_bg_muted": "#FCD34D"
+      },
+      {
+        "name": "badge_critical",
+        "kind": "solid",
+        "bg": "#7F1D1D",
+        "on_bg": "#FECACA",
+        "on_bg_muted": "#FCA5A5"
+      },
+      {
+        "name": "badge_info",
+        "kind": "solid",
+        "bg": "#1E3A8A",
+        "on_bg": "#BFDBFE",
+        "on_bg_muted": "#93C5FD"
+      },
+      {
+        "name": "modal_overlay",
+        "kind": "glass",
+        "contrast_against": "#080C12",
+        "guarantee": "backdrop-blur-md bg-black/75",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CBD5E1"
+      }
+    ],
+    "brand": {
+      "primary": "#2563EB",
+      "primary_hover": "#1D4ED8",
+      "primary_light": "#60A5FA",
+      "accent_fire": "#E11D48",
+      "accent_gold": "#D97706"
+    },
+    "status": {
+      "ativo": "#10B981",
+      "ativo_bg": "rgba(16, 185, 129, 0.12)",
+      "alerta_expirando": "#F59E0B",
+      "alerta_bg": "rgba(245, 158, 11, 0.12)",
+      "desligado": "#EF4444",
+      "desligado_bg": "rgba(239, 68, 68, 0.12)",
+      "info_azul": "#3B82F6",
+      "info_bg": "rgba(59, 130, 246, 0.12)"
+    },
+    "borders": {
+      "default": "#1E2C42",
+      "subtle": "#162234",
+      "highlight": "#38BDF8",
+      "warning": "#F59E0B",
+      "critical": "#EF4444"
+    },
+    "accent": "#2563EB",
+    "on_accent": "#FFFFFF"
+  },
+  "entry_surfaces": {
+    "/": "Institutional command center dashboard with tactical dark theme, KPI cards matrix, Recharts operational charts, and global filter controls",
+    "/login": "Branded split auth screen — CBMMT institutional insignia and operational context left, credential authentication panel right"
+  },
+  "layout_and_navigation": {
+    "structure": "Fixed & Collapsible Sidebar on left (w-64 expanded, w-20 collapsed), Sticky Top Header with glass/solid depth, and Main Scrollable Viewport with padded content.",
+    "sidebar_sections": [
+      {
+        "title": "Principal",
+        "items": [
+          {"id": "visao-geral", "label": "Visão Geral", "icon": "LayoutDashboard", "path": "/"},
+          {"id": "temporarios-geral", "label": "Temporários Geral", "icon": "Users", "path": "/temporarios"}
+        ]
+      },
+      {
+        "title": "Quadros de Efetivo",
+        "items": [
+          {"id": "auxiliares", "label": "Auxiliares", "icon": "ShieldAlert", "path": "/temporarios?cargo=Auxiliar"},
+          {"id": "condutores", "label": "Condutores", "icon": "Truck", "path": "/temporarios?cargo=Condutor"},
+          {"id": "tec-enfermagem", "label": "Técnicos de Enfermagem", "icon": "Activity", "path": "/temporarios?cargo=TecnicoEnfermagem"},
+          {"id": "enfermeiros", "label": "Enfermeiros", "icon": "HeartPulse", "path": "/temporarios?cargo=Enfermeiro"},
+          {"id": "medicos", "label": "Médicos", "icon": "Stethoscope", "path": "/temporarios?cargo=Medico"},
+          {"id": "outros-cargos", "label": "Outros Cargos", "icon": "Briefcase", "path": "/temporarios?cargo=Outros"}
+        ]
+      },
+      {
+        "title": "Operacional & Gestão",
+        "items": [
+          {"id": "desligamentos", "label": "Desligamentos e Histórico", "icon": "UserX", "path": "/desligamentos"},
+          {"id": "importacao", "label": "Importação de Dados", "icon": "FileSpreadsheet", "path": "/importacao"},
+          {"id": "relatorios", "label": "Relatórios", "icon": "FileText", "path": "/relatorios"},
+          {"id": "configuracoes", "label": "Configurações e Usuários", "icon": "Settings", "path": "/configuracoes"}
+        ]
+      }
+    ],
+    "header_elements": [
+      "Logo Icon + Título: 'CBMMT - Gerenciamento de Bombeiros Temporários'",
+      "Seletor/Badge de 'Última atualização: [Data/Hora Atual]'",
+      "Barra de Pesquisa Rápida Global (Ctrl+K / Cmd+K)",
+      "Botão de Ação Rápida '+ Novo Cadastro'",
+      "Aviso de Notificações de Contratos a Vencer",
+      "Menu do Usuário (Identificação Militar/Masp, Avatar, Perfil e Sair)"
+    ]
+  },
+  "dashboard_kpis": [
+    {"id": "kpi-ativos", "label": "Temporários Ativos", "color": "emerald", "icon": "UserCheck"},
+    {"id": "kpi-desligamentos", "label": "Desligamentos no Período", "color": "rose", "icon": "UserMinus"},
+    {"id": "kpi-top-ubm", "label": "Top UBM com Maior Efetivo", "color": "blue", "icon": "Building2"},
+    {"id": "kpi-auxiliares", "label": "Auxiliares", "color": "sky", "icon": "Shield"},
+    {"id": "kpi-condutores", "label": "Condutores de Viaturas", "color": "indigo", "icon": "Truck"},
+    {"id": "kpi-tec-enfermagem", "label": "Téc. de Enfermagem", "color": "teal", "icon": "Activity"},
+    {"id": "kpi-enfermeiros", "label": "Enfermeiros", "color": "cyan", "icon": "HeartPulse"},
+    {"id": "kpi-medicos", "label": "Médicos", "color": "violet", "icon": "Stethoscope"},
+    {"id": "kpi-contratos-a-vencer", "label": "Contratos a Vencer (<60d)", "color": "amber", "icon": "ClockAlert"},
+    {"id": "kpi-contratos-vencidos", "label": "Contratos Vencidos", "color": "red", "icon": "AlertTriangle"}
+  ],
+  "dashboard_charts": [
+    {
+      "id": "chart-efetivo-cargo-ano",
+      "title": "Efetivo por Cargo por Ano",
+      "type": "BarChart / StackedBarChart",
+      "description": "Comparativo anual do quantitativo de temporários distribuídos por cargo (Auxiliar, Condutor, Técnico, Enfermeiro, Médico)"
+    },
+    {
+      "id": "chart-desligamentos-motivo",
+      "title": "Desligamentos por Cargo / Ano / Motivo",
+      "type": "BarChart / GroupedBarChart",
+      "description": "Análise de desligamentos estratificados por motivo (Fim de Contrato, A Pedido, Disciplinar, Posse em Concurso, Outro)"
+    },
+    {
+      "id": "chart-efetivo-ubm",
+      "title": "Efetivo por UBM (Unidade Bombeiro Militar)",
+      "type": "HorizontalBarChart",
+      "description": "Distribuição do efetivo alocado nas UBMs (1º BBM, 2º BBM, 3º BBM, CBM Cuiabá, Várzea Grande, Rondonópolis, etc.)"
+    },
+    {
+      "id": "chart-evolucao-temporal",
+      "title": "Evolução Mensal / Anual de Entradas e Saídas",
+      "type": "AreaChart / LineChart",
+      "description": "Fluxo histórico de admissões vs desligamentos ao longo do tempo"
+    },
+    {
+      "id": "chart-distribuicao-edital",
+      "title": "Distribuição por Edital / Período de Ingresso",
+      "type": "PieChart / DonutChart",
+      "description": "Proporção de militares por edital de convocação e ano de ingresso"
+    },
+    {
+      "id": "chart-faixas-vencimento",
+      "title": "Contratos a Vencer por Faixa de Dias",
+      "type": "BarChart",
+      "description": "Faixas de alerta operacional: Vencidos, 1-30 dias, 31-60 dias, 61-90 dias, >90 dias"
+    }
+  ],
+  "table_and_action_spec": {
+    "data_tables": {
+      "columns_temporarios": ["Matrícula / ID", "Nome Completo", "CPF", "Cargo / Função", "UBM / Lotação", "Edital", "Data Admissão", "Data Término", "Dias Restantes", "Status", "Ações"],
+      "columns_desligamentos": ["Matrícula / ID", "Nome Completo", "Cargo", "UBM", "Data Desligamento", "Motivo", "Portaria / Processo", "Ações"],
+      "features": ["Pesquisa em tempo real", "Filtro por Coluna", "Ordenação multi-critério", "Paginação (10, 25, 50, 100 itens)", "Exportação CSV/Excel", "Seleção em lote"]
+    },
+    "registration_form": {
+      "sections": [
+        "1. Dados Pessoais (Nome, CPF, RG, Data Nascimento, Sexo, Contato, E-mail)",
+        "2. Dados Militares / Contratuais (Matrícula, Cargo, Edital, UBM/Lotação, Data Admissão, Data Prevista Término, Nível Salarial)",
+        "3. Lotação e Escala (Companhia/Pelotão, Turno/Escala, Supervisor)",
+        "4. Documentos & Anotações (Portaria de Nomeação, Observações Médicas/Operacionais)"
+      ],
+      "actions": [
+        {"id": "btn-salvar", "label": "Salvar Cadastro", "variant": "default"},
+        {"id": "btn-salvar-outro", "label": "Salvar e Cadastrar Outro", "variant": "secondary"},
+        {"id": "btn-cancelar", "label": "Cancelar", "variant": "outline"},
+        {"id": "btn-limpar", "label": "Limpar Formulário", "variant": "ghost"}
+      ]
+    },
+    "modals_and_dialogs": {
+      "registrar_desligamento": {
+        "title": "Registrar Desligamento de Bombeiro Temporário",
+        "fields": ["Data do Desligamento", "Motivo do Desligamento (Select)", "Número da Portaria/BGO", "Observações Detalhadas"],
+        "confirm_btn": "Confirmar Desligamento (Vermelho)",
+        "cancel_btn": "Cancelar"
+      },
+      "reativar_cadastro": {
+        "title": "Reativar Cadastro de Militar",
+        "fields": ["Nova Data de Início", "Novo Vencimento de Contrato", "Nova UBM / Cargo", "Justificativa / Portaria"],
+        "confirm_btn": "Confirmar Reativação (Verde)",
+        "cancel_btn": "Cancelar"
+      }
+    },
+    "import_wizard_steps": [
+      {"step": 1, "title": "Upload de Arquivo", "desc": "Envio do arquivo CSV ou XLSX com dados de militares temporários"},
+      {"step": 2, "title": "Mapeamento de Colunas", "desc": "Associação de cabeçalhos da planilha com os campos do sistema"},
+      {"step": 3, "title": "Validação e Preview", "desc": "Detecção automática de erros, CPFs duplicados e campos obrigatórios"},
+      {"step": 4, "title": "Conclusão e Relatório", "desc": "Importação em lote no banco com resumo de registros criados/atualizados"}
+    ]
+  },
+  "motion_and_interactions": {
+    "page_transitions": "transition: opacity 0.2s ease-out, transform 0.2s ease-out",
+    "card_hover": "hover:border-slate-600 hover:shadow-lg hover:shadow-black/40 transition: border-color 0.15s ease, box-shadow 0.15s ease",
+    "button_press": "active:scale-[0.98] transition: transform 0.1s ease",
+    "sidebar_toggle": "transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  "accessibility_and_testing": {
+    "data_testid_rules": "All interactive elements, buttons, inputs, tables, chart cards, and navigation items MUST have explicit data-testid attributes (kebab-case)",
+    "contrast_compliance": "All normal text passes APCA/WCAG AA (>= 4.5:1), large text and tactical numbers pass (>= 3:1). Muted text uses high-legibility slate-400 (#94A3B8) on dark background (#121B28) with 5.2:1 contrast ratio.",
+    "keyboard_nav": "Full tab index navigation for forms, dialogs, and table filters."
+  },
+  "instructions_to_main_agent": [
+    "1. Adote o tema Dark Mode com base nas cores declaradas em 'colors.surfaces' e 'colors.status'. A interface deve ter visual militar tático de alto padrão (CBMMT), limpo, moderno e organizado.",
+    "2. Use a biblioteca Recharts para construir todos os 6 gráficos interativos com Tooltips customizados no tema escuro e paleta de cores militar/tática (Azul, Esmeralda, Âmbar, Carmesim, Ciano).",
+    "3. No cabeçalho, exiba o brasão/ícone institucional estilizado do CBMMT ('Corpo de Bombeiros Militar de Mato Grosso'), identificação do militar/usuário logado e data/hora da última atualização.",
+    "4. Crie todos os endpoints no backend FastAPI (CRUD completo de temporários, histórico de desligamentos, endpoints agregados de KPIs e estatísticas dos gráficos, importação CSV/XLSX, exportação de relatórios, gestão de lotações/cargos/editais/usuários e autenticação).",
+    "5. Popule o banco com um script de seed rico e realista contendo dezenas de bombeiros militares temporários distribuídos pelas UBMs de Mato Grosso (Cuiabá, Várzea Grande, Rondonópolis, Sinop, Tangará da Serra, Cáceres, etc.) e em todos os cargos (Auxiliar, Condutor, Técnico Enfermagem, Enfermeiro, Médico).",
+    "6. Garanta que todas as ações obrigatórias estejam presentes e funcionais: 'Salvar Cadastro', 'Salvar e Cadastrar Outro', 'Cancelar', 'Limpar', diálogo de 'Registrar Desligamento', ação de 'Reativar Cadastro', wizard de 4 passos de importação e exportação de relatórios.",
+    "7. Todas as tags interativas e cartões chave devem conter o atributo data-testid correspondente."
+  ]
+}

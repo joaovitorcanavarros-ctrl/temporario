@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: 'Manrope Variable', sans-serif;
+    --font-sans: 'Plus Jakarta Sans Variable', sans-serif;
+    --font-mono: 'JetBrains Mono Variable', monospace;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-panel: #121B28;
+    --color-elevated: #182335;
+    --color-page: #0B111A;
+    --color-ativo: #10B981;
+    --color-alerta: #F59E0B;
+    --color-critico: #EF4444;
+    --color-info: #3B82F6;
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-rise: rise 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+:root, .dark {
+    --background: #0B111A;
+    --foreground: #F1F5F9;
+    --card: #121B28;
+    --card-foreground: #F1F5F9;
+    --popover: #182335;
+    --popover-foreground: #F1F5F9;
+    --primary: #2563EB;
+    --primary-foreground: #FFFFFF;
+    --secondary: #1B2740;
+    --secondary-foreground: #E2E8F0;
+    --muted: #162234;
+    --muted-foreground: #94A3B8;
+    --accent: #1E2C42;
+    --accent-foreground: #F8FAFC;
+    --destructive: #EF4444;
+    --border: #1E2C42;
+    --input: #24344D;
+    --ring: #3B82F6;
+    --chart-1: #3B82F6;
+    --chart-2: #10B981;
+    --chart-3: #F59E0B;
+    --chart-4: #EF4444;
+    --chart-5: #22D3EE;
+    --radius: 0.6rem;
+    --sidebar: #0D1522;
+    --sidebar-foreground: #F8FAFC;
+    --sidebar-primary: #2563EB;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #15213A;
+    --sidebar-accent-foreground: #F8FAFC;
+    --sidebar-border: #162234;
+    --sidebar-ring: #3B82F6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground antialiased;
+    }
+  html {
+    @apply font-sans;
+    color-scheme: dark;
+    }
+  h1, h2, h3, h4 {
+    @apply font-heading tracking-tight;
+    }
+}
+
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.recharts-wrapper:focus, .recharts-surface:focus, .recharts-sector:focus, .recharts-rectangle:focus { outline: none; }
