@@ -4,7 +4,7 @@ import {
   Area, AreaChart, Bar, BarChart, CartesianGrid, Cell, ComposedChart, Legend, Line, Pie, PieChart,
   ResponsiveContainer, Tooltip, XAxis, YAxis,
 } from "recharts";
-import { Activity, AlertTriangle, Briefcase, Building2, Clock, HeartPulse, Shield, Stethoscope, Truck, UserCheck, UserMinus } from "lucide-react";
+import { Activity, Briefcase, Scale, Building2, Clock, HeartPulse, Shield, Stethoscope, Truck, UserCheck, UserMinus } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import DrillSheet, { type Drill } from "@/components/DrillSheet";
 import FiltersBar from "@/components/FiltersBar";
@@ -126,8 +126,8 @@ export default function Dashboard() {
           onClick={() => d?.kpis.top_ubm_id && setDrill({ title: d.kpis.top_ubm_nome ?? "UBM", params: { ...base, lotacao_id: d.kpis.top_ubm_id, ativo_em: ref } })} />
         <Kpi id="contratos-a-vencer" label="Contratos a vencer" value={v(d?.kpis.a_vencer)} icon={Clock} tone="amber" sub={`Próximos ${d?.alerta_dias ?? "—"} dias`}
           onClick={() => setDrill({ title: "Contratos a vencer", params: { ...base, venc: "a_vencer" } })} />
-        <Kpi id="contratos-vencidos" label="Contratos vencidos" value={v(d?.kpis.vencidos)} icon={AlertTriangle} tone="red" sub="Ativos com vínculo vencido — conferir"
-          onClick={() => setDrill({ title: "Contratos vencidos pendentes de conferência", params: { ...base, venc: "vencidos" } })} />
+        <Kpi id="sub-judice" label="Militares sub judice" value={v(d?.kpis.sub_judice)} icon={Scale} tone="amber" sub={`Ativos em ${fmtDate(ref)}`}
+          onClick={() => setDrill({ title: "Militares sub judice", params: { ...base, sub_judice: "true", ativo_em: ref } })} />
         {(cats.length ? cats.filter((c) => c.chave !== "OUTROS" || c.total > 0) : []).map((c) => (
           <Kpi key={c.chave} id={c.chave.toLowerCase().replace(/_/g, "-")} label={c.nome} value={fmtNum(c.total)} icon={CAT_ICON[c.chave] ?? Briefcase} tone="sky" sub="Ativos no cargo"
             onClick={() => setDrill({ title: `${c.nome} — ativos`, params: { ...base, categoria: c.chave, ativo_em: ref } })} />

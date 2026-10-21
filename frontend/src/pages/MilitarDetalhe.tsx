@@ -69,6 +69,7 @@ export default function MilitarDetalhe() {
             <Info label="Inclusão"><span className="num">{fmtDate(m.data_inclusao)}</span></Info>
             <Info label="Vencimento do contrato"><span className="num">{fmtDate(m.data_vencimento_contrato)}</span></Info>
             <Info label="DOE — incorporação">{m.doe_incorporacao ?? "—"}</Info>
+            <Info label="Sub judice"><span data-testid="detail-sub-judice" className={m.sub_judice ? "font-semibold text-amber-300" : ""}>{m.sub_judice ? "Sim" : "Não"}</span></Info>
             <Info label="Última atualização">{fmtDateTime(m.atualizado_em)} · {m.atualizado_por_nome ?? "—"}</Info>
             {m.status === "DESLIGADO" && (
               <>

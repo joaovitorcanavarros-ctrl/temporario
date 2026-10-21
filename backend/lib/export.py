@@ -11,6 +11,8 @@ from openpyxl.styles import Font, PatternFill
 
 
 def _fmt(v: Any) -> Any:
+    if isinstance(v, bool):
+        return "Sim" if v else "Não"
     if isinstance(v, str) and len(v) == 10 and v[4] == "-" and v[7] == "-":
         return f"{v[8:10]}/{v[5:7]}/{v[0:4]}"
     return "" if v is None else v

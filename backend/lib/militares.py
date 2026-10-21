@@ -41,6 +41,7 @@ class Filtros:
     venc_min_dias: int | None = None
     venc_max_dias: int | None = None
     venc: str | None = None  # a_vencer | vencidos
+    sub_judice: bool | None = None
 
 
 def periodo(f: Filtros) -> tuple[str | None, str | None]:
@@ -112,6 +113,8 @@ def build_query(f: Filtros, maps: Maps, today: str) -> dict:
         val = getattr(f, campo)
         if val:
             conds.append({campo: val})
+    if f.sub_judice is not None:
+        conds.append({"sub_judice": True} if f.sub_judice else {"sub_judice": {"$ne": True}})
     if f.motivo_id:
         conds.append({"motivo_desligamento_id": None if f.motivo_id == "sem_motivo" else f.motivo_id})
     if f.q:
@@ -163,6 +166,7 @@ def enrich(doc: dict, maps: Maps, today: str) -> dict:
         lotacao_nome=maps.lotacoes.get(doc["lotacao_id"], {}).get("nome", "—"),
         edital_nome=maps.editais.get(doc["edital_id"], {}).get("nome", "—"),
         motivo_desligamento_nome=mot.get("nome"),
+        sub_judice=bool(doc.get("sub_judice")),
         dias_para_vencer=dias_entre(today, doc["data_vencimento_contrato"]),
         alerta=alerta_contrato(doc, today, maps.alerta_dias),
         criado_por_nome=maps.usuarios.get(doc.get("criado_por") or "", doc.get("criado_por_nome")),
@@ -208,6 +212,7 @@ def audit_view(doc: dict | None, maps: Maps) -> dict[str, Any]:
         "Documento/processo": doc.get("documento_desligamento"),
         "Observações": doc.get("observacoes"),
         "DOE - Incorporação": doc.get("doe_incorporacao"),
+        "Sub judice": "Sim" if doc.get("sub_judice") else "Não",
     }
 
 

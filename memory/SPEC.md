@@ -19,6 +19,7 @@ lotacoes · editais · motivos · usuarios · sessions · config (_id "app": ale
 historico_situacao (INCLUSAO/DESLIGAMENTO/REATIVACAO).
 
 ## Regras
+- sub_judice (bool): campo do cadastro (Sim/Não); card "Militares sub judice" no painel substituiu "Contratos vencidos" (vencidos seguem no gráfico de faixas, filtro e relatórios). Seed/importação marca sub_judice quando o nome contém "(sub judice)" — 3 registros.
 - Ativo = status ATIVO (estoque em data passada: incluído ≤ D e não desligado até D).
 - Desligamentos/inclusões no período = data do evento no período (filtros ano ou data_inicio/data_fim).
 - A vencer = ATIVO e vencimento em [hoje, hoje+alerta_dias]; Vencido = ATIVO e vencimento < hoje. Nunca desliga automaticamente.

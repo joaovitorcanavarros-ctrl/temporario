@@ -19,7 +19,7 @@ export interface Meta { data_hoje: string; ultima_atualizacao: string | null; to
 export interface MilitarIn {
   matricula: string; nome_completo: string; cargo_id: string; lotacao_id: string; edital_id: string;
   data_inclusao: string; data_vencimento_contrato: string; status: Status;
-  observacoes?: string | null; doe_incorporacao?: string | null;
+  observacoes?: string | null; doe_incorporacao?: string | null; sub_judice: boolean;
   data_desligamento?: string | null; motivo_desligamento_id?: string | null; documento_desligamento?: string | null;
 }
 export interface MilitarRapidoIn { lotacao_id?: string | null; edital_id?: string | null; data_vencimento_contrato?: string | null; observacoes?: string | null }
@@ -32,7 +32,7 @@ export interface Militar {
   lotacao_id: string; lotacao_nome: string; edital_id: string; edital_nome: string;
   data_inclusao: string; data_vencimento_contrato: string; status: Status;
   data_desligamento: string | null; motivo_desligamento_id: string | null; motivo_desligamento_nome: string | null;
-  documento_desligamento: string | null; observacoes: string | null; doe_incorporacao: string | null;
+  documento_desligamento: string | null; observacoes: string | null; doe_incorporacao: string | null; sub_judice: boolean;
   dias_para_vencer: number; alerta: "VENCIDO" | "A_VENCER" | null;
   criado_em: string | null; atualizado_em: string | null; criado_por_nome: string | null; atualizado_por_nome: string | null;
 }
@@ -57,7 +57,7 @@ export interface FaixaItem { faixa: string; min: number | null; max: number | nu
 export interface KPIs {
   ativos: number; desligamentos_periodo: number; inclusoes_periodo: number;
   top_ubm_id: string | null; top_ubm_nome: string | null; top_ubm_total: number;
-  por_categoria: Record<string, number>; a_vencer: number; vencidos: number;
+  por_categoria: Record<string, number>; a_vencer: number; vencidos: number; sub_judice: number;
 }
 export type ChartRow = Record<string, string | number>;
 export interface Dashboard {

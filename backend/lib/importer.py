@@ -152,6 +152,7 @@ async def aplicar(validacao: dict[str, Any], aprovar: set[str], user: dict, orig
             doc = {
                 "id": new_id(), "matricula": rec["matricula"], **campos, "status": "ATIVO",
                 "observacoes": campos.get("observacoes"), "doe_incorporacao": campos.get("doe_incorporacao"),
+                "sub_judice": "SUB JUDICE" in norm_key(rec["nome_completo"]),
                 "data_desligamento": None, "motivo_desligamento_id": None, "documento_desligamento": None,
                 "criado_em": agora(), "atualizado_em": agora(), "criado_por": user["id"], "atualizado_por": user["id"],
             }

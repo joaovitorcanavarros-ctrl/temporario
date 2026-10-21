@@ -31,7 +31,7 @@ EXPORT_COLS = [
     ("data_inclusao", "Data de inclusão"), ("data_vencimento_contrato", "Vencimento do contrato"),
     ("dias_para_vencer", "Dias p/ vencer"), ("status", "Situação"), ("data_desligamento", "Data do desligamento"),
     ("motivo_desligamento_nome", "Motivo do desligamento"), ("documento_desligamento", "Documento/processo"),
-    ("doe_incorporacao", "DOE - Incorporação"), ("observacoes", "Observações"),
+    ("sub_judice", "Sub judice"), ("doe_incorporacao", "DOE - Incorporação"), ("observacoes", "Observações"),
 ]
 
 

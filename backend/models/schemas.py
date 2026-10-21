@@ -144,6 +144,7 @@ class MilitarIn(BaseModel):
     status: Status = "ATIVO"
     observacoes: str | None = Field(default=None, max_length=2000)
     doe_incorporacao: str | None = Field(default=None, max_length=300)
+    sub_judice: bool = False
     data_desligamento: date | None = None
     motivo_desligamento_id: str | None = None
     documento_desligamento: str | None = Field(default=None, max_length=120)
@@ -218,6 +219,7 @@ class Militar(BaseModel):
     documento_desligamento: str | None = None
     observacoes: str | None = None
     doe_incorporacao: str | None = None
+    sub_judice: bool = False
     dias_para_vencer: int
     alerta: Literal["VENCIDO", "A_VENCER"] | None = None
     criado_em: datetime | None = None
@@ -305,6 +307,7 @@ class KPIs(BaseModel):
     por_categoria: dict[str, int]
     a_vencer: int
     vencidos: int
+    sub_judice: int
 
 
 class Dashboard(BaseModel):

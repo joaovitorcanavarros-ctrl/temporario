@@ -28,6 +28,7 @@ const schema = z
     data_vencimento_contrato: z.string().min(1, "Informe a data de vencimento"),
     status: z.enum(["ATIVO", "DESLIGADO"]),
     doe_incorporacao: z.string().max(300).optional(),
+    sub_judice: z.enum(["SIM", "NAO"]),
     observacoes: z.string().max(2000).optional(),
     data_desligamento: z.string().optional(),
     motivo_desligamento_id: z.string().optional(),
@@ -47,7 +48,7 @@ type F = z.infer<typeof schema>;
 
 const EMPTY: F = {
   matricula: "", nome_completo: "", cargo_id: "", lotacao_id: "", edital_id: "", data_inclusao: "", data_vencimento_contrato: "",
-  status: "ATIVO", doe_incorporacao: "", observacoes: "", data_desligamento: "", motivo_desligamento_id: "", documento_desligamento: "",
+  status: "ATIVO", doe_incorporacao: "", sub_judice: "NAO", observacoes: "", data_desligamento: "", motivo_desligamento_id: "", documento_desligamento: "",
 };
 
 function Field({ label, error, children, req, className }: { label: string; error?: string; children: ReactNode; req?: boolean; className?: string }) {
@@ -80,7 +81,7 @@ export default function MilitarForm() {
       form.reset({
         matricula: m.matricula, nome_completo: m.nome_completo, cargo_id: m.cargo_id, lotacao_id: m.lotacao_id, edital_id: m.edital_id,
         data_inclusao: m.data_inclusao, data_vencimento_contrato: m.data_vencimento_contrato, status: m.status,
-        doe_incorporacao: m.doe_incorporacao ?? "", observacoes: m.observacoes ?? "", data_desligamento: m.data_desligamento ?? "",
+        doe_incorporacao: m.doe_incorporacao ?? "", sub_judice: m.sub_judice ? "SIM" : "NAO", observacoes: m.observacoes ?? "", data_desligamento: m.data_desligamento ?? "",
         motivo_desligamento_id: m.motivo_desligamento_id ?? "", documento_desligamento: m.documento_desligamento ?? "",
       });
   }, [atual.data, form]);
@@ -122,7 +123,7 @@ export default function MilitarForm() {
       }
       const body: MilitarIn = {
         ...v,
-        doe_incorporacao: v.doe_incorporacao || null, observacoes: v.observacoes || null,
+        doe_incorporacao: v.doe_incorporacao || null, observacoes: v.observacoes || null, sub_judice: v.sub_judice === "SIM",
         data_desligamento: v.status === "DESLIGADO" ? v.data_desligamento || null : null,
         motivo_desligamento_id: v.status === "DESLIGADO" ? v.motivo_desligamento_id || null : null,
         documento_desligamento: v.status === "DESLIGADO" ? v.documento_desligamento || null : null,
@@ -195,6 +196,12 @@ export default function MilitarForm() {
             </Field>
             <Field label="DOE — incorporação">
               <Input data-testid="input-doe" placeholder="Ex.: DOE Nº 29.266, pág. 12" {...form.register("doe_incorporacao")} />
+            </Field>
+            <Field label="Militar sub judice?" req>
+              <Controller control={form.control} name="sub_judice" render={({ field }) => (
+                <FieldSelect testId="select-sub-judice" value={field.value} onChange={(v) => field.onChange(v as F["sub_judice"])}
+                  options={[{ value: "NAO", label: "Não" }, { value: "SIM", label: "Sim — vínculo por decisão judicial" }]} />
+              )} />
             </Field>
             <Field label="Data de inclusão no efetivo" req error={e.data_inclusao?.message}>
               <Input type="date" className="[color-scheme:dark]" data-testid="input-data-inclusao" {...form.register("data_inclusao")} />

@@ -186,6 +186,7 @@ def compute_dashboard(
             "por_categoria": {c: por_cat.get(c, 0) for c in cat_codes},
             "a_vencer": alertas.count("A_VENCER"),
             "vencidos": alertas.count("VENCIDO"),
+            "sub_judice": sum(1 for m in ativos_ref if m.get("sub_judice")),
         },
         "categorias": [{"chave": c["codigo"], "nome": c["nome"], "total": por_cat.get(c["codigo"], 0)} for c in categorias],
         "motivos": [{"chave": m["id"], "nome": m["nome"], "total": tot_motivo.get(m["id"], 0)} for m in motivos],
