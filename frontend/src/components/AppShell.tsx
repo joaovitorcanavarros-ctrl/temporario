@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, Navigate, Outlet, useNavigate } from "react-router-dom";
 import {
-  Activity, Briefcase, ChevronsLeft, ChevronsRight, FileSpreadsheet, FileText, Flame, HeartPulse,
+  Activity, Briefcase, ChevronsLeft, ChevronsRight, FileSpreadsheet, FileText, HeartPulse,
   LayoutDashboard, LogOut, Menu, Settings, Shield, Stethoscope, Truck, UserPlus, Users, UserX,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -88,9 +88,7 @@ function SidebarBody({ collapsed, onNavigate }: { collapsed: boolean; onNavigate
 function Brand({ collapsed }: { collapsed: boolean }) {
   return (
     <Link to="/" className={cn("flex items-center gap-3 px-5 py-5", collapsed && "justify-center px-0")} data-testid="brand-link">
-      <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-red-600 to-orange-500 shadow-lg shadow-red-900/40">
-        <Flame className="size-5 text-white" />
-      </span>
+      <img src="/cbmmt-logo.png" alt="Emblema do Corpo de Bombeiros Militar de Mato Grosso" className="size-11 shrink-0 drop-shadow-[0_4px_10px_rgba(220,38,38,0.35)]" data-testid="brand-logo" />
       {!collapsed && (
         <span className="leading-tight">
           <span className="block font-heading text-[15px] font-extrabold tracking-wide text-white">CBMMT</span>

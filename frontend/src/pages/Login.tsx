@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
-import { Flame, Lock, ShieldCheck } from "lucide-react";
+import { Lock, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -38,7 +38,7 @@ export default function Login() {
         <div className="absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#94A3B8_1px,transparent_1px),linear-gradient(90deg,#94A3B8_1px,transparent_1px)] [background-size:44px_44px]" />
         <div className="relative flex h-full flex-col justify-between p-12">
           <div className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-red-600 to-orange-500 shadow-xl shadow-red-900/40"><Flame className="size-6 text-white" /></span>
+            <img src="/cbmmt-logo.png" alt="Emblema do CBMMT" className="size-16 drop-shadow-[0_6px_16px_rgba(220,38,38,0.35)]" data-testid="login-logo" />
             <div>
               <p className="font-heading text-lg font-extrabold tracking-wide text-white">CBMMT</p>
               <p className="text-xs text-slate-400">Corpo de Bombeiros Militar de Mato Grosso</p>

@@ -253,9 +253,12 @@ export default function Dashboard() {
             </Tabs>
           }>
           {d && (distView === "cargo" ? d.dist_categoria : d.dist_edital).length ? (
-            <ResponsiveContainer width="100%" height={280}>
-              <PieChart>
-                <Pie data={distView === "cargo" ? d.dist_categoria : d.dist_edital} dataKey="total" nameKey="nome" innerRadius={60} outerRadius={100} paddingAngle={2} stroke="#121B28" className="cursor-pointer"
+            <ResponsiveContainer width="100%" height={320}>
+              <PieChart style={{ fontSize: 11 }}>
+                <Pie data={distView === "cargo" ? d.dist_categoria : d.dist_edital} dataKey="total" nameKey="nome" innerRadius={55} outerRadius={90} paddingAngle={2} stroke="#121B28" className="cursor-pointer"
+                  labelLine={{ stroke: "#475569" }}
+                  label={(p: { name?: string; value?: number; percent?: number }) =>
+                    `${String(p.name ?? "").slice(0, 24)}: ${fmtNum(p.value ?? 0)} (${Math.round((p.percent ?? 0) * 100)}%)`}
                   onClick={(e: { payload?: { chave: string; nome: string } }) => {
                     const p = e.payload;
                     if (!p) return;
@@ -266,7 +269,7 @@ export default function Dashboard() {
                   ))}
                 </Pie>
                 <Tooltip {...tooltipStyle} formatter={(x: number) => [fmtNum(x), "Ativos"]} />
-                <Legend wrapperStyle={{ fontSize: 11 }} layout="vertical" align="right" verticalAlign="middle" />
+                <Legend wrapperStyle={{ fontSize: 11, paddingTop: 8 }} layout="horizontal" align="center" verticalAlign="bottom" />
               </PieChart>
             </ResponsiveContainer>
           ) : <Empty />}
