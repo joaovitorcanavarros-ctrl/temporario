@@ -246,7 +246,7 @@ export default function Dashboard() {
           ) : <Empty />}
         </ChartCard>
 
-        <ChartCard id="distribuicao" title="Distribuição dos quadros e cargos" desc={`Efetivo em ${fmtDate(ref)} — use os filtros de período para consultar datas anteriores`}
+        <ChartCard id="distribuicao" title="Distribuição por Cargos e Editais" desc={`Efetivo em ${fmtDate(ref)} — use os filtros de período para consultar datas anteriores`}
           action={
             <Tabs value={distView} onValueChange={(x) => setDistView(String(x))}>
               <TabsList><TabsTrigger value="cargo" data-testid="distribuicao-tab-cargo">Por cargo</TabsTrigger><TabsTrigger value="edital" data-testid="distribuicao-tab-edital">Por edital</TabsTrigger></TabsList>
